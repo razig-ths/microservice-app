@@ -1,0 +1,23 @@
+version : '3'
+
+services:
+  nodeapp1:
+    image: nodeapp
+    envirement:
+      - PRT=1111
+      - URLL= /orders
+  nodeapp2:
+    image: nodeapp
+    envirement:
+      - PRT=2222
+      - URLL= /orders/1
+  nodeapp3:
+    image: nodeapp
+    envirement:
+      - PRT=3333
+      - URLL= /suppliers
+  nodeapp4:
+    image: nodeapp
+    envirement:
+      - PRT=4444
+      - URLL= /suppliers/1
