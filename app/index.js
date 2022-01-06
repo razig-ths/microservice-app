@@ -73,6 +73,8 @@ let SUPPLIERS= {
   }
 }
 
+
+
 function findOById(id){
   return Object.entries(ORDERS.order).reduce((a, [user, userData]) => {
     userData.id == id ? a[user] = userData : '';
@@ -87,13 +89,23 @@ function findSById(id){
   }, {});
 }
 
+let URLL;
+let PRT;
+
+app.get("/", function(req,res)=>
+
+if (URLL=="/orders") {res.send(ORDERS))};
+if (URLL=="/orders/1"){res.send(findOById(1))};
+if (URLL=="/suppliers"){res.send(uppliers)};
+if (URLL=="/suppliers/1"){res.send(findSById(1))};
 
 
+}
 
-app.get("/orders/1", (req,res)=>res.send(findOById(1)));
-app.get("/orders", (req,res)=>res.send(ORDERS));
+//app.get("/orders/1", (req,res)=>res.send(findOById(1)));
 
-app.get("/suppliers", (req,res)=>res.send(suppliers));
-app.get("/suppliers/1", (req,res)=>res.send(findSById(1)));
 
-app.listen(1111,()=>console.log("My first microservice app "));
+//app.get("/suppliers", (req,res)=>res.send(suppliers));
+//app.get("/suppliers/1", (req,res)=>res.send(findSById(1)));
+
+app.listen(PRT,()=>console.log("My first microservice app "));
