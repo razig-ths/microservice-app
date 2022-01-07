@@ -1,8 +1,9 @@
 const app = require("express")();
 
+const urll = process.env.APPID;
+//const prt = process.env.PRT
 
-
-// orders
+// simple orders-data for testing
 let ORDERS= {
   'order': {
     'o1': {
@@ -39,7 +40,7 @@ let ORDERS= {
   }
 }
 
-// suppliers
+// a simple suppliers-data for testing
 let SUPPLIERS= {
   'supplier': {
     's1': {
@@ -89,23 +90,18 @@ function findSById(id){
   }, {});
 }
 
-let URLL;
-let PRT;
 
-app.get("/", function(req,res)=>
 
-if (URLL=="/orders") {res.send(ORDERS))};
-if (URLL=="/orders/1"){res.send(findOById(1))};
-if (URLL=="/suppliers"){res.send(uppliers)};
-if (URLL=="/suppliers/1"){res.send(findSById(1))};
+// function to find the wanted ports
 
+function findpath(){
+if (urll==1111) {return ORDERS};
+if (urll==2222){return findOById(1)};
+if (urll==3333){return SUPPLIERS};
+if (urll==4444){return findSById(1)};
 
 }
+app.get("/", (req,res)=>res.send(findpath()));
+;
 
-//app.get("/orders/1", (req,res)=>res.send(findOById(1)));
-
-
-//app.get("/suppliers", (req,res)=>res.send(suppliers));
-//app.get("/suppliers/1", (req,res)=>res.send(findSById(1)));
-
-app.listen(PRT,()=>console.log("My first microservice app "));
+app.listen(urll,()=>console.log("My first microservice-Test--"));
