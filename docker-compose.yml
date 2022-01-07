@@ -1,23 +1,29 @@
 version : '3'
 
 services:
+  lb:
+    image: haproxy
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./haproxy:/usr/local/etc/haproxy
   nodeapp1:
     image: nodeapp
-    envirement:
-      - PRT=1111
-      - URLL= /orders
+    environment:
+      - APPID=1111
+
+
   nodeapp2:
     image: nodeapp
-    envirement:
-      - PRT=2222
-      - URLL= /orders/1
+    environment:
+      - APPID=2222
+
   nodeapp3:
     image: nodeapp
-    envirement:
-      - PRT=3333
-      - URLL= /suppliers
+    environment:
+      - APPID=3333
+
   nodeapp4:
     image: nodeapp
-    envirement:
-      - PRT=4444
-      - URLL= /suppliers/1
+    environment:
+      - APPID=4444
